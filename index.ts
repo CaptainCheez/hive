@@ -1,18 +1,16 @@
 import "reflect-metadata";
-import {apple} from "./src/controllers/ideas";
+import {IdeaController} from "./src/controllers/ideas";
 import express from "express";
-const createExpressServer = require("routing-controllers");
+import {useExpressServer} from "routing-controllers";
 
-let app = express();
 const mongoose = require('mongoose');
 
-// app = createExpressServer({
-//     controllers: [IdeaController]
-// });
-
+let app = express();
+useExpressServer(app, {
+    controllers: [IdeaController]
+});
 
 app.listen(3000);
-console.log(apple);
 
 // mongoose.connect('mongodb://localhost:27017/hive', {useNewUrlParser: true});
 // const db = mongoose.connection;
