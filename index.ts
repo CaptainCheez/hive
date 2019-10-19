@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import {apple} from "./src/controllers/ideas";
+import express from "express";
 const createExpressServer = require("routing-controllers");
 
-const express = require('express');
 let app = express();
 const mongoose = require('mongoose');
 
