@@ -4,15 +4,30 @@
   "description": "beshbarmak",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node --extensions .ts,.js index"
   },
   "author": "node god",
   "license": "ISC",
   "dependencies": {
+    "@babel/node": "^7.6.3",
     "@types/express": "^4.17.1",
+    "@types/mongoose": "^5.5.19",
+    "body-parser": "^1.19.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1",
+    "core-util-is": "^1.0.2",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
+    "mongoose": "^5.7.1",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.8.0",
+    "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-cli": "^6.26.0"
   }
 }

@@ -1,12 +1,18 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "target": "es6",
-        "moduleResolution": "node",
+        "experimentalDecorators": true,
         "sourceMap": true,
-        "outDir": "dist",
-        "experimentalDecorators": true
+        "target": "esnext",
+        "baseUrl": ".",
+        "noEmit": true,
+        "esModuleInterop": true,
+        "paths": {
+            "*": ["*"]
+        },
+        "moduleResolution": "node",
+        "lib": ["es6"]   
     },
-    "lib": ["es2015"]
+    "include": [
+        "src/**/*.ts", "index.ts"
+    ]
 }
