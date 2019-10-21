@@ -12,13 +12,13 @@ useExpressServer(app, {
 
 app.listen(3000);
 
-// mongoose.connect('mongodb://localhost:27017/hive', {useNewUrlParser: true});
-// const db = mongoose.connection;
+mongoose.connect('mongodb://localhost:27017/hive', {useNewUrlParser: true});
+const db = mongoose.connection;
 
-// db.once('open', function(){
-//     console.log('Connected to MongoDB');
-// });
+db.once('open', function(){
+    console.log('Connected to MongoDB');
+});
 
-// db.on('error', function(err){
-//     console.log(err);
-// });
+db.on('error', function(err){
+    console.log(err);
+});

@@ -1,16 +1,39 @@
-import {Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
+import {JsonController, Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
+import {User} from "../schemas/user";
 
-@Controller()
+@Controller("/users")
 export class IdeaController {
     @Get("/")
-    getAll(): any {
-       return "This action returns all users";
+    getAll(): number {
+        const user = new User({
+            name: "Bruce",
+            password: "123",
+            email: "bruce@wayne.com"
+        });
+        user.save();
+       return User.find().toArray();
     }
 
     @Get("/:id")
-    getById(): any {
-        return "This action returns by id"
+    getById(): String {
+        const user = new User({
+            name: "Elon",
+            password: "123",
+            email: "elon@musk.com"
+        });
+        user.save();
+       return User.find({name: "Elon"}).lean();
+    }
+
+    @Post("/users")
+    createUser(@Body() user: any): any {
+        const newUser = new User({
+            name: user.name,
+            password: user.password,
+            email: user.email,
+            avatar: user.avatar || ""
+        })
+        newUser.save();
+       return "Saving user...";
     }
 }
-
-export const apple = 1;
