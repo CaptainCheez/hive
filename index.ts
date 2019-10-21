@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import {useExpressServer} from "routing-controllers";
-import {IdeaController} from "./src/controllers/ideas";
+import {UserController} from "./src/controllers/users";
 import express from "express";
 
 const mongoose = require('mongoose');
 
 let app = express();
 useExpressServer(app, {
-    controllers: [IdeaController]
+    controllers: [UserController]
 });
 
 app.listen(3000);

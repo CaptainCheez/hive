@@ -1,8 +1,8 @@
 import {Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
 import {User} from "../schemas/user";
 
-@Controller("/ideas")
-export class IdeaController {
+@Controller("/users")
+export class UserController {
     @Get("/")
     getAll(): number {
         const user = new User({
@@ -11,11 +11,12 @@ export class IdeaController {
             email: "bruce@wayne.com"
         });
         user.save();
-       return User.find().toArray();
+       return User.find().lean();
     }
 
     @Get("/:id")
-    getById(): String {
+    getById(@Param("id") id: number): String {
+        console.log(id)
         const user = new User({
             name: "Elon",
             password: "123",
@@ -34,6 +35,6 @@ export class IdeaController {
             avatar: user.avatar || ""
         })
         newUser.save();
-       return "Saving user...";
+        return "Saving user...";
     }
 }
