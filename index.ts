@@ -1,7 +1,7 @@
 import "reflect-metadata";
+import {useExpressServer} from "routing-controllers";
 import {IdeaController} from "./src/controllers/ideas";
 import express from "express";
-import {useExpressServer} from "routing-controllers";
 
 const mongoose = require('mongoose');
 

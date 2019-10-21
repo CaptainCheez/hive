@@ -1,7 +1,7 @@
-import {JsonController, Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
+import {Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
 import {User} from "../schemas/user";
 
-@Controller("/users")
+@Controller("/ideas")
 export class IdeaController {
     @Get("/")
     getAll(): number {

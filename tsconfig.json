@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
         "baseUrl": ".",
@@ -9,18 +9,14 @@
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "sourceMap": false,
+        "noImplicitAny": true,
+        "sourceMap": true,
         "skipLibCheck": true,
+        "declaration": true,
         "paths": {
             "*": ["*"]
         },
-        "lib": [
-            "es6",
-            "es2015",
-            "es2016",
-            "es2017",
-            "es2018"
-        ]   
+        "lib": ["es6"]   
     },
     "include": [
         "src/**/*.ts", "index.ts"
