@@ -1,4 +1,5 @@
-import {Controller, Param, Body, Get, Post, Put, Delete} from "routing-controllers";
+import {Controller, Param, Body, Get, Post, Res, Req, UseBefore, Put, Delete} from "routing-controllers";
+import { json } from 'body-parser';
 import {User} from "../schemas/user";
 
 @Controller("/users")
@@ -16,18 +17,14 @@ export class UserController {
 
     @Get("/:id")
     getById(@Param("id") id: number): String {
-        console.log(id)
-        const user = new User({
-            name: "Elon",
-            password: "123",
-            email: "elon@musk.com"
-        });
-        user.save();
+        User.remove({})
        return User.find({name: "Elon"}).lean();
     }
 
-    @Post("/users")
-    createUser(@Body() user: any): any {
+    @Post("/")
+    @UseBefore(json())
+    async createUser(@Body() user: any, @Req() req: any, @Res() res: any): any {
+        console.log(user, req.body);
         const newUser = new User({
             name: user.name,
             password: user.password,
@@ -35,6 +32,7 @@ export class UserController {
             avatar: user.avatar || ""
         })
         newUser.save();
-        return "Saving user...";
+        const token = await newUser.generateAuthToken()
+        res.status(201).send({ newUser, token })
     }
 }
