@@ -1,5 +1,7 @@
+import { Service } from 'typedi';
 import {User} from "../schemas/user";
 
+@Service()
 export class UserService {
     static findAll = () => {
         const user = new User({
